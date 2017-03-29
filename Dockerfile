@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM nexus:5443/alpine:latest
 
 MAINTAINER Pierre Prinetti <me@qrawl.net>
 
