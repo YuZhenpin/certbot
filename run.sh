@@ -8,11 +8,11 @@ if [ -z ${renew+x} ]; then
 
   if [ -z ${distinct+x} ]; then
 
-    certbot certonly --verbose --noninteractive --quiet --standalone --agree-tos --email="${email}" -d "${domains}"; else
+    certbot certonly --preferred-challenges tls-sni-01 --verbose --noninteractive --quiet --standalone --agree-tos --email="${email}" -d "${domains}"; else
 
     IFS=',' read -ra ADDR <<< "$domains"
     for domain in "${ADDR[@]}"; do
-        certbot certonly --verbose --noninteractive --quiet --standalone --agree-tos --email="${email}" -d "${domain}"
+        certbot certonly --preferred-challenges tls-sni-01 --verbose --noninteractive --quiet --standalone --agree-tos --email="${email}" -d "${domain}"
     done
 
   fi; else
